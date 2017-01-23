@@ -7,7 +7,7 @@ void setup() {
 
 void loop() {
   // this is generally not necessary but with some older systems it seems to
-  // prevent missing the first character after a delay:
+  // prevent missing the first character after a delay
   DigiKeyboard.sendKeyStroke(0);
   
   DigiKeyboard.delay(3000);
