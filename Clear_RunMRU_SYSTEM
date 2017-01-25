@@ -1,0 +1,1 @@
+$objUser = New-Object System.Security.Principal.NTAccount("$env:username"); $strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier]); $sid = $strSID.Value; reg delete HKEY_USERS\$sid\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
