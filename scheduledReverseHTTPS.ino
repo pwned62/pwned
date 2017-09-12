@@ -20,9 +20,7 @@ void loop() {
 
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
-  int endTime = 0;
-
-  while (endTime < 1) {
+  while (true) {
 
   DigiKeyboard.sendKeyStroke(KEY_Y, MOD_ALT_LEFT);
   DigiKeyboard.delay(250);
