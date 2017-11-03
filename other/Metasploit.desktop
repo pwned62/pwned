@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Metasploit Framework
+Comment=Metasploit
+Exec=msfconsole
+Icon=
+Terminal=true
+Type=Application
+Categories=Utility;Application;Development;
+

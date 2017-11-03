@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Veil Evasion
+Comment=Veil Evasion
+Exec=python /root/Veil-Evasion/Veil-Evasion.py
+Icon=
+Terminal=true
+Type=Application
+Categories=Utility;Application;Development;

